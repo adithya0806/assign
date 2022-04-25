@@ -1,11 +1,14 @@
 ---
-- name: install docker
-  yum:
-    name='docker'
-    state=latest
+- name: Install pip
+  apt:
+    name: python-pip
+    state: present
+
+- name: Install Docker-py for python
+  pip:
+    name: docker-py
 
 - name: service docker
   service:
-    name=docker
-    state=started
-    enabled=yes
+    name: "docker"
+    state: started
