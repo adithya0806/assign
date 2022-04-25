@@ -4,7 +4,7 @@
   roles: 
     - role: docker
 
-- hosts: localhost
-  connection: local
+- name: run and deploy nginx docker container
+  hosts: all
   roles: 
     - role: nginx
