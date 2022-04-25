@@ -1,0 +1,3 @@
+CMD                         %CPU %MEM   PID
+[rcu_gp]                     0.0  0.0     3
+sshd: ec2-user [priv]        0.0  0.8  3322
