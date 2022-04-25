@@ -10,6 +10,3 @@
 
 - name: service docker
   command: service docker restart
-#  service:
-#    name: "docker"
-#    state: started
