@@ -1,0 +1,10 @@
+---
+- name: Install and start docker service
+  hosts: all
+  roles: 
+    - role: docker
+
+- hosts: localhost
+  connection: local
+  roles: 
+    - role: nginx

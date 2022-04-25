@@ -1,0 +1,32 @@
+---
+- name: Configure yum
+  yum_repository:
+    name: "docker_repo"
+    description: Yum repo for docker
+    baseurl: https://download.docker.com/linux/centos/7/x86_64/stable/
+    gpgcheck: no
+- name: Install Python
+  package:
+    name: "python3"
+    state: present
+
+- name: Install Docker sdk for python
+  pip:
+    name: docker
+
+- name: pull docker image
+  docker_image:
+    name: nginx
+    tag: latest
+    source: pull
+
+- name: deploy nginx docker container
+  #  vars:
+    #   ansible_python_interpreter: /usr/bin/python3.7
+  docker_container:
+    image: nginx:stable
+    name: nginx
+    state: started
+    auto_remove: true
+    ports:
+      - "8080:80"
