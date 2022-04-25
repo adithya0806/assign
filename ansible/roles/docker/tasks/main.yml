@@ -1,7 +1,7 @@
 ---
 - name: Install pip
   apt:
-    name: python-pip
+    name: python3-pip
     state: present
 
 - name: Install Docker-py for python
@@ -9,6 +9,7 @@
     name: docker-py
 
 - name: service docker
-  service:
-    name: "docker"
-    state: started
+  command: service docker restart
+#  service:
+#    name: "docker"
+#    state: started
